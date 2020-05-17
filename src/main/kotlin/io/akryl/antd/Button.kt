@@ -19,12 +19,6 @@ enum class ButtonShape {
     round
 }
 
-enum class ButtonSize {
-    large,
-    middle,
-    small,
-}
-
 enum class ButtonType {
     primary,
     ghost,
@@ -40,7 +34,7 @@ fun button(
     icon: ReactElement<*>? = undefined,
     loading: Boolean? = undefined,
     shape: ButtonShape? = undefined,
-    size: ButtonSize? = undefined,
+    size: ElementSize? = undefined,
     target: String? = undefined,
     type: ButtonType? = undefined,
     onClick: (() -> Unit)? = undefined,
