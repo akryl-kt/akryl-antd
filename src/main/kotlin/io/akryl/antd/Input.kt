@@ -50,7 +50,12 @@ object input {
         value: String? = undefined,
         onChange: ((Event) -> Unit)? = undefined,
         onPressEnter: ((Event) -> Unit)? = undefined,
-        allowClear: Boolean? = undefined
+        allowClear: Boolean? = undefined,
+        placeholder: String? = undefined,
+
+        css: CssStyle? = undefined,
+        className: CharSequence? = undefined,
+        style: CssStyle? = undefined
     ) = React.createElement(
         Input.default,
         json(
@@ -66,7 +71,10 @@ object input {
             "value" to value,
             "onChange" to onChange,
             "onPressEnter" to onPressEnter,
-            "allowClear" to allowClear
+            "allowClear" to allowClear,
+            "placeholder" to placeholder,
+            "className" to concatStyle(css, className),
+            "style" to style?.toStyleJson()
         )
     )
 
@@ -79,7 +87,12 @@ object input {
         onPressEnter: ((Event) -> Unit)? = undefined,
         allowClear: Boolean? = undefined,
         onResize: ((ResizeEvent) -> Unit)? = undefined,
-        onChange: ((Event) -> Unit)? = undefined
+        onChange: ((Event) -> Unit)? = undefined,
+        placeholder: String? = undefined,
+
+        css: CssStyle? = undefined,
+        className: CharSequence? = undefined,
+        style: CssStyle? = undefined
     ) = React.createElement(
         TextArea.default,
         json(
@@ -91,7 +104,10 @@ object input {
             "onPressEnter" to onPressEnter,
             "allowClear" to allowClear,
             "onResize" to onResize,
-            "onChange" to onChange
+            "onChange" to onChange,
+            "placeholder" to placeholder,
+            "className" to concatStyle(css, className),
+            "style" to style?.toStyleJson()
         )
     )
 
