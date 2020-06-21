@@ -2,6 +2,10 @@
 
 package io.akryl.antd
 
+import io.akryl.dom.css.CssStyle
+import io.akryl.dom.css.toStyleJson
+import io.akryl.dom.html.concatChildrenToArray
+import io.akryl.dom.html.concatStyle
 import org.w3c.dom.events.Event
 import react.React
 import react.ReactElement
@@ -89,5 +93,27 @@ object input {
             "onResize" to onResize,
             "onChange" to onChange
         )
+    )
+
+    fun group(
+        compact: Boolean? = undefined,
+        size: ElementSize? = undefined,
+
+        css: CssStyle? = undefined,
+        className: CharSequence? = undefined,
+        style: CssStyle? = undefined,
+
+        children: List<ReactElement<*>>? = undefined,
+        child: ReactElement<*>? = undefined,
+        text: String? = undefined
+    ) = React.createElement(
+        Group.default,
+        json(
+            "compact" to compact,
+            "size" to size?.toString().orUndefined(),
+            "className" to concatStyle(css, className),
+            "style" to style?.toStyleJson()
+        ),
+        children = *concatChildrenToArray(children, child, text)
     )
 }
